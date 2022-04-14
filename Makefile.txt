@@ -1,5 +1,0 @@
-README.md: guessinggame.sh
-        # echo "hello World"
-        touch README.md
-        echo "TITLE: Guessing Game" >> README.md
-        echo "Number of lines of code in guessinggame.sh:$lines" >> README.md
