@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/env bash
 
 all_files=( * )            # includes directories
 directories=( */ )         # directories only
