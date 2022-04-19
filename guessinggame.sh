@@ -9,24 +9,25 @@ echo "Please guess the number of files in this directory"
 function logic {
 	if [[ $1 -ne $2 ]]; then
 		if [[ $1 -gt $2 ]]; then
-			echo "Your guess is Higher than the correct answer. Try again"
+			echo "Your guess is HIGHER than the correct answer. Try again"
 		else
-			echo "Your guess is Lower than the correct answer. Try again."
+			echo "Your guess is LOWER than the correct answer. Try again."
 		fi
 	else
-		echo "******************************"
-		echo "CONGRATULATIONS! You guessed it right!"
-		echo "******************************"
+		echo "********************************************"
+		echo "*  CONGRATULATIONS! You guessed it right!  *"
+		echo "********************************************"
 	fi
 }
 
 while [[ $response -ne $file_count ]]
-do	
+do
 	echo
 	echo "What is your Guess?"
 	read response
 	# echo $response
-	if [[ $response == *['!'@#\$%^\&*()_+]* ]] || [[ $response == *" "* ]]; then
+	if  [[ ! $response == *['!'\@\~\#\`\$\%\^\&\*\(\)\_\-\+]* ]] && [[ ! $response == *[a-zA-Z]* ]] && [[ ! $response == *[[:space:]]* ]]
+	then
 		logic $response $file_count
 	else
 		echo "INVALID Response!! Please try again..."
