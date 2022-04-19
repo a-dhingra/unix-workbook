@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-file_count=$(ls -l|grep "^-"|wc -l)
-# echo $file_count
+file_count=$(ls -1A|wc -l)
+# echo "The file count is" $file_count
 echo
 echo "Let's play a game"
 echo "Please guess the number of files in this directory"
@@ -26,7 +26,8 @@ do
 	echo "What is your Guess?"
 	read response
 	# echo $response
-	if  [[ ! $response == *['!'\@\~\#\`\$\%\^\&\*\(\)\_\-\+]* ]] && [[ ! $response == *[a-zA-Z]* ]] && [[ ! $response == *[[:space:]]* ]]
+	# if  [[ ! $response == *[\@\~\#\`\$\%\^\&\*\(\)\_\-\+]* ]] && [[ ! $response == *[a-zA-Z]* ]] && [[ ! $response == *[[:space:]]* ]]
+	if  [[  $response =~ ^[0-9]{1,}+$ ]]
 	then
 		logic $response $file_count
 	else
